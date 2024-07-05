@@ -11,7 +11,7 @@ class Calculator {
   #zeroCountDecimal
   #decimalHasBeenAdded
   #counterAddedDigitsToNum
-  #calculatorStatus
+
 
   constructor () {
     this.#result = 0
@@ -26,17 +26,6 @@ class Calculator {
     this.#decimalHasBeenAdded = false
     this.#zeroCountDecimal = 0
     this.#counterAddedDigitsToNum = 0
-    this.#calculatorStatus = new Map([
-      ['activatedOperators', false],
-      ['activatedNumeric', true],
-      ['activatedPlusMinus', true],
-      ['activatedDecimal', true],
-      ['activatedEqual', false]
-    ])
-  }
-
-  getCalculatorStatus () {
-    return this.#calculatorStatus
   }
 
   getResult () {
@@ -70,11 +59,8 @@ class Calculator {
       } else {
         this.addDigitToCurrentNumber(newValueClicktoFloat)
       }
-      this.#calculatorStatus.set('activatedOperators', true)
     } else {
       this.#currentNumberHasComma = true
-      this.#calculatorStatus.set('activatedOperators', false)
-      this.#calculatorStatus.set('activatedDecimal', false)
     }
   }
 
@@ -109,7 +95,6 @@ class Calculator {
       this.#zeroCountDecimal = 0
       this.#decimalHasBeenAdded = true
     }
-    this.#calculatorStatus.set('activatedDecimal', false)
   }
 
   setOperator (operator) {
@@ -121,7 +106,6 @@ class Calculator {
   }
 
   resetNumberStatus () {
-    this.#calculatorStatus.set('activatedDecimal', true)
     this.#currentNumberCountDecimals = 0
     this.#decimalHasBeenAdded = false
     this.#currentNumberHasComma = false
@@ -192,12 +176,5 @@ class Calculator {
     this.#decimalHasBeenAdded = false
     this.#zeroCountDecimal = 0
     this.#counterAddedDigitsToNum = 0
-    this.#calculatorStatus = new Map([
-      ['activatedOperators', false],
-      ['activatedNumeric', true],
-      ['activatedPlusMinus', true],
-      ['activatedDecimal', true],
-      ['activatedEqual', false]
-    ])
   }
 }

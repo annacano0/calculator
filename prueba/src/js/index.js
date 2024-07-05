@@ -1,9 +1,9 @@
 // BUTTONS
-let operatorsButtons = document.getElementsByClassName('operator')
-let numbersButtons = document.getElementsByClassName('number')
-let decimalButton = document.getElementById('decimal')
-let equalButton = document.getElementById('equal')
-let plusminusButton = document.getElementById('plusminus')
+const operatorsButtons = document.getElementsByClassName('operator')
+const numbersButtons = document.getElementsByClassName('number')
+const decimalButton = document.getElementById('decimal')
+const equalButton = document.getElementById('equal')
+const plusminusButton = document.getElementById('plusminus')
 
 addEventListeners()
 
@@ -35,6 +35,7 @@ function addOperatorButtonEventListeners () {
   for (const operatorButton of operatorsButtons) {
     operatorButton.addEventListener('click', (event) => {
       CALCULATOR.setOperator(event.target.getAttribute('value'))
+      DISPLAY.setOperator(event.target.getAttribute('value'))
       updateDOM()
     })
   }
@@ -53,8 +54,9 @@ function addClearButtonEventListeners () {
 }
 
 function addEqualButtonEventListeners () {
-  equalButton.addEventListener('click', () => {
+  equalButton.addEventListener('click', (event) => {
     CALCULATOR.getResult()
+    DISPLAY.setOperator(event.target.getAttribute('value'))
     updateDOM()
   })
 }

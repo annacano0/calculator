@@ -7,6 +7,7 @@ class Display {
   #plusMinusButton
   #decimalButton
   #equalButton
+  #currentOperator
 
   constructor (
     maxLength,
@@ -24,24 +25,42 @@ class Display {
     this.#plusMinusButton = plusMinusButton
     this.#decimalButton = decimalButton
     this.#equalButton = equalButton
+    this.#currentOperator = ''
+
   }
 
   setContent (newContent) {
+    console.log(newContent)// BORRAR ESTA LÍNEA DE PRUEBA AL ACABAR
+    newContent = newContent.toString()
+    console.log(typeof newContent)
     if (
       newContent === Infinity ||
       newContent === -Infinity ||
       Number.isNaN(newContent) ||
       newContent === undefined ||
-      newContent == null ||
-      newContent.toString().length > this.#maxLength
+      newContent == null
     ) {
+      console.log('entra errores')
       this.#content = 'ERROR'
+    } else if (newContent.toString().length > this.#maxLength) {
+      if (newContent.includes('.')) {
+        console.log('entra en punto periodico')
+        newContent = newContent.substring(0, (this.#maxLength))
+        this.#content = newContent
+      } else {
+        this.#content = 'ERROR'
+        console.log('entra en error length')
+      }
     } else {
-      this.#content = newContent.toString()
+      this.#content = newContent
+      console.log('entra sin error')
     }
-    console.log(newContent)
     this.#displayDOM.textContent = this.#content
     this.checkDisplayStatusFromContent()
+    if(this.#currentOperator !== ''){
+      this.checkOperatorStatusFromCurrentOperator()
+    }
+    this.checkOperatorStatusFromCurrentOperator()
   }
 
   checkDisplayStatusFromContent () {
@@ -102,6 +121,19 @@ class Display {
       this.updateStatusButtons([this.#equalButton], true)
       this.updateStatusButtons([this.#plusMinusButton], true)
     }
+  }
+
+  setOperator (newOperator) {
+    this.#currentOperator=newOperator
+  } 
+
+  checkOperatorStatusFromCurrentOperator(){
+    this.updateStatusButtons(this.#operatorButtons, true)
+    for (let i = 0; i < this.#operatorButtons.length; i++) {
+      if (this.#operatorButtons[i].getAttribute('value') === this.#currentOperator) {
+        this.updateStatusButtons([this.#operatorButtons[i]], false)
+      }
+    } 
   }
 
   updateStatusButtons (buttons, state) {
