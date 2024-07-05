@@ -30,37 +30,35 @@ class Display {
   }
 
   setContent (newContent) {
-    console.log(newContent)// BORRAR ESTA LÍNEA DE PRUEBA AL ACABAR
-    newContent = newContent.toString()
-    console.log(typeof newContent)
+    let newContentToString = newContent.toString()
+    let newContentToNumber = Number(newContent)
     if (
-      newContent === Infinity ||
-      newContent === -Infinity ||
-      Number.isNaN(newContent) ||
-      newContent === undefined ||
-      newContent == null
+      newContentToNumber === Infinity ||
+      newContentToNumber === -Infinity ||
+      Number.isNaN(newContentToNumber) ||
+      newContentToNumber === undefined ||
+      newContentToNumber == null
     ) {
-      console.log('entra errores')
       this.#content = 'ERROR'
-    } else if (newContent.toString().length > this.#maxLength) {
-      if (newContent.includes('.')) {
+    } else if (newContentToString.length > this.#maxLength) {
+      if (newContentToString.includes('.')) {
         console.log('entra en punto periodico')
-        newContent = newContent.substring(0, (this.#maxLength))
-        this.#content = newContent
+        newContentToString = newContentToString.substring(0, (this.#maxLength))
+        this.#content = newContentToString
       } else {
         this.#content = 'ERROR'
         console.log('entra en error length')
       }
     } else {
-      this.#content = newContent
+      this.#content = newContentToString
       console.log('entra sin error')
     }
     this.#displayDOM.textContent = this.#content
+
     this.checkDisplayStatusFromContent()
     if(this.#currentOperator !== ''){
       this.checkOperatorStatusFromCurrentOperator()
     }
-    this.checkOperatorStatusFromCurrentOperator()
   }
 
   checkDisplayStatusFromContent () {
@@ -74,7 +72,7 @@ class Display {
     } else if (this.#content.includes('.')) {
       this.updateStatusButtons([this.#decimalButton], false)
       this.updateStatusButtons([this.#plusMinusButton], true)
-      if (this.#content.indexOf('.') === this.#content.length - 1) { // si el punto esta en la ultima pos
+      if (this.#content.indexOf('.') === this.#content.length - 1) { // si el punto esta en la ultima pos y no es mayor a 9
         this.updateStatusButtons([this.#equalButton], false)
         this.updateStatusButtons(this.#operatorButtons, false)
         this.updateStatusButtons([this.#plusMinusButton], false)
@@ -85,6 +83,7 @@ class Display {
           // desactivar numeros
         } else {
           this.updateStatusButtons(this.#numbersButtons, true)
+          this.updateStatusButtons(this.#operatorButtons, false)
           console.log('ultimo digito punto no 9')
           // Activar numeros
         }
@@ -120,6 +119,7 @@ class Display {
       this.updateStatusButtons(this.#operatorButtons, true)
       this.updateStatusButtons([this.#equalButton], true)
       this.updateStatusButtons([this.#plusMinusButton], true)
+      console.log("entra en el else")
     }
   }
 
