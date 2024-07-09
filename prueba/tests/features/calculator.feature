@@ -178,7 +178,7 @@ And the "+" button should be disabled
 And the "-" button should be enabled
 And the "*" button should be enabled
 And the "/" button should be enabled
-And the "=" button should be disabled
+And the "=" button should be enabled
 
 Scenario Outline: Reenabling buttons with no error
 Given the display shows the following value: "123456789"
@@ -199,7 +199,7 @@ And the "+" button should be enabled
 And the "-" button should be disabled
 And the "*" button should be enabled
 And the "/" button should be enabled
-And the "=" button should be disabled
+And the "=" button should be enabled
 
 Scenario Outline: Reenabling buttons with no error
 Given the display shows the following value: "123456789"
@@ -220,7 +220,7 @@ And the "+" button should be enabled
 And the "-" button should be enabled
 And the "*" button should be enabled
 And the "/" button should be enabled
-And the "=" button should be disabled
+And the "=" button should be enabled
 
 Scenario Outline: Reenabling buttons with no error
 Given the display shows the following value: "123456789"
@@ -241,7 +241,7 @@ And the "+" button should be enabled
 And the "-" button should be enabled
 And the "*" button should be enabled
 And the "/" button should be enabled
-And the "=" button should be disabled
+And the "=" button should be enabled
 
 Scenario Outline: Reenabling buttons with no error
 Given the display shows the following value: "123456789"

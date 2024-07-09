@@ -67,7 +67,7 @@ class Display {
       this.updateStatusButtons(this.#numbersButtons, true)
       this.updateStatusButtons([this.#decimalButton], true)
       this.updateStatusButtons(this.#operatorButtons, true)
-      this.updateStatusButtons([this.#equalButton], false) // ultima modificacion
+      this.updateStatusButtons([this.#equalButton], true) // ultima modificacion
       this.updateStatusButtons([this.#plusMinusButton], true) 
     } else if (this.#content.includes('.')) {
       this.updateStatusButtons([this.#decimalButton], false)
