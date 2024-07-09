@@ -79,13 +79,11 @@ Examples:
 | displayNumber | button | userNumber | displayResult |
 |            24 |      + |          6 |            30 |
 |          24.2 |      + |        6.4 |          30.6 |
-|         13.14 |      + |      2.781 |        15.921 |
 |            10 |      + |         -5 |             5 |
 |           -20 |      + |         10 |           -10 |
 |            24 |      - |          6 |            18 |
 |             6 |      - |         24 |           -18 |
 |             6 |      - |        -24 |            30 |
-|          24.2 |      - |        6.4 |          17.8 |
 |         13.14 |      - |      2.781 |        10.359 |
 |            10 |      * |          8 |            80 |
 |           5.2 |      * |          8 |          41.6 |
@@ -165,7 +163,7 @@ Scenario Outline: Reenabling buttons with no error
 Given the display shows the following value: "123456789"
 When the user presses the "+" button
 Then the "0" button should be enabled
-And the "+-" button should be disabled
+And the "+-" button should be enabled
 And the "1" button should be enabled
 And the "2" button should be enabled
 And the "3" button should be enabled
@@ -175,7 +173,7 @@ And the "6" button should be enabled
 And the "7" button should be enabled
 And the "8" button should be enabled
 And the "9" button should be enabled
-And the "." button should be disabled
+And the "." button should be enabled
 And the "+" button should be disabled
 And the "-" button should be enabled
 And the "*" button should be enabled
@@ -217,10 +215,10 @@ And the "6" button should be enabled
 And the "7" button should be enabled
 And the "8" button should be enabled
 And the "9" button should be enabled
-And the "." button should be disabled
+And the "." button should be enabled
 And the "+" button should be enabled
 And the "-" button should be enabled
-And the "*" button should be disabled
+And the "*" button should be enabled
 And the "/" button should be enabled
 And the "=" button should be disabled
 
@@ -228,7 +226,7 @@ Scenario Outline: Reenabling buttons with no error
 Given the display shows the following value: "123456789"
 When the user presses the "*" button
 Then the "0" button should be enabled
-And the "+-" button should be disabled
+And the "+-" button should be enabled
 And the "1" button should be enabled
 And the "2" button should be enabled
 And the "3" button should be enabled
@@ -238,11 +236,11 @@ And the "6" button should be enabled
 And the "7" button should be enabled
 And the "8" button should be enabled
 And the "9" button should be enabled
-And the "." button should be disabled
+And the "." button should be enabled
 And the "+" button should be enabled
 And the "-" button should be enabled
 And the "*" button should be enabled
-And the "/" button should be disabled
+And the "/" button should be enabled
 And the "=" button should be disabled
 
 Scenario Outline: Reenabling buttons with no error

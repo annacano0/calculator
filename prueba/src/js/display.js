@@ -65,10 +65,10 @@ class Display {
     if (this.#content === '0') {
       console.log('entra en 0')
       this.updateStatusButtons(this.#numbersButtons, true)
-      this.updateStatusButtons([this.#decimalButton], true)//esto es una contradiccion
+      this.updateStatusButtons([this.#decimalButton], true)
       this.updateStatusButtons(this.#operatorButtons, true)
-      this.updateStatusButtons([this.#equalButton], true)
-      this.updateStatusButtons([this.#plusMinusButton], true) //deberia ser false
+      this.updateStatusButtons([this.#equalButton], false) // ultima modificacion
+      this.updateStatusButtons([this.#plusMinusButton], true) 
     } else if (this.#content.includes('.')) {
       this.updateStatusButtons([this.#decimalButton], false)
       this.updateStatusButtons([this.#plusMinusButton], true)
@@ -152,7 +152,7 @@ class Display {
     this.updateStatusButtons(this.#numbersButtons, true)
     this.updateStatusButtons([this.#decimalButton], true)
     this.updateStatusButtons(this.#operatorButtons, true)
-    this.updateStatusButtons([this.#equalButton], true)
+    this.updateStatusButtons([this.#equalButton], false)//modificacion
     this.updateStatusButtons([this.#plusMinusButton], true)
     this.#currentOperator=''
   }

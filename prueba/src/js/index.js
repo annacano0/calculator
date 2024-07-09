@@ -74,5 +74,6 @@ function updateDOM () {
 
 function resetCalculatorStatus () {
   CALCULATOR.resetCalculator()
+  DISPLAY.resetDisplay()//last mod
   updateDOM()
 }
