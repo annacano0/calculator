@@ -5,13 +5,13 @@ const {
   After,
   setDefaultTimeout
 } = require('@cucumber/cucumber')
-const { webkit } = require('playwright')
+const { chromium } = require('playwright')
 
 setDefaultTimeout(6000)
 
 // launch the browser
 BeforeAll(async () => {
-  global.browser = await webkit.launch({
+  global.browser = await chromium.launch({
     headless: true,
     slowMo: 1
   })

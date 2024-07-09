@@ -217,7 +217,7 @@ And the "8" button should be enabled
 And the "9" button should be enabled
 And the "." button should be enabled
 And the "+" button should be enabled
-And the "-" button should be enabled
+And the "-" button should be disabled
 And the "*" button should be enabled
 And the "/" button should be enabled
 And the "=" button should be enabled
@@ -239,7 +239,7 @@ And the "9" button should be enabled
 And the "." button should be enabled
 And the "+" button should be enabled
 And the "-" button should be enabled
-And the "*" button should be enabled
+And the "*" button should be disabled
 And the "/" button should be enabled
 And the "=" button should be enabled
 
